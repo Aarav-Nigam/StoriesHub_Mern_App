@@ -5,7 +5,7 @@ export const fetchAllPost = createAsyncThunk(
     "Allposts/fetch", async(page) => {
         try {
             const response = await fetchPosts(page);
-            console.log(response)
+            // console.log(response)
             return response;
         } catch (err) {
             return err.message;
@@ -16,7 +16,7 @@ export const fetchPostBySearch = createAsyncThunk(
     "posts/fetch", async(searchQuery) => {
         try {
             const response = await fetchPostBySearchAPI(searchQuery);
-            console.log(response)
+            // console.log(response)
             return response;
         } catch (err) {
             return err.message;
@@ -103,7 +103,7 @@ export const signUp=createAsyncThunk(
 const setUserInitial=()=>{
     const obj=JSON.parse(localStorage.getItem('StoryHubUser'));
     if(obj===null) return null;
-    console.log(obj)
+    // console.log(obj)
     const decodedToken=decode(obj.token);
     if(decodedToken.exp*1000<new Date().getTime()){
         localStorage.removeItem('StoryHubUser');
@@ -136,7 +136,7 @@ export const postSlice=createSlice({
             localStorage.removeItem('StoryHubUser');
         },
         addImg(state,action){
-            console.log(state.user)
+            // console.log(state.user)
             state.user={...state.user,imgUrl:action.payload.data}
             localStorage.setItem('StoryHubUser',JSON.stringify(state.user))
         }
@@ -147,7 +147,7 @@ export const postSlice=createSlice({
                 state.isLoading=true;
             })
             .addCase(fetchAllPost.fulfilled, (state, action) => {
-                console.log(action.payload.data)
+                // console.log(action.payload.data)
                 state.posts = action.payload.data;
                 state.isLoading=false;
             })
@@ -158,8 +158,12 @@ export const postSlice=createSlice({
                 state.isLoading=true;
             })
             .addCase(createPost.fulfilled,(state,action)=>{
-                state.posts.postsArray=[...state.posts.postsArray,action.payload.data];
-                console.log(state.posts);
+                state.posts.postsArray=[action.payload.data,...state.posts.postsArray];
+                if(state.posts.postsArray.length>6){
+                    state.posts.postsArray.pop();
+                    //Make some logic to increase pagination to increase no of pages if overflow
+                }
+                // console.log(state.posts);
                 state.isLoading=false;
             })
             .addCase(createPost.rejected,(state,action)=>{
@@ -189,7 +193,7 @@ export const postSlice=createSlice({
             })
             .addCase(deletePost.fulfilled,(state,action)=>{
                 state.posts.postsArray=state.posts.postsArray.filter((post)=>{return post._id!=action.payload.data._id});
-                console.log(state.posts);
+                // console.log(state.posts);
                 state.isLoading=false;
             })
             .addCase(deletePost.rejected,(state,action)=>{
@@ -235,7 +239,7 @@ export const postSlice=createSlice({
                 state.isLoading=true;
             })
             .addCase(fetchPostBySearch.fulfilled,(state,action)=>{
-                console.log(action.payload.data.data)
+                // console.log(action.payload.data.data)
                 state.posts.postsArray=action.payload.data.data;
                 state.isLoading=false;
             })
@@ -245,7 +249,7 @@ export const postSlice=createSlice({
             .addCase(fetchPost.pending,(state,action)=>{
             })
             .addCase(fetchPost.fulfilled,(state,action)=>{
-                console.log(action.payload)
+                // console.log(action.payload)
                 state.post=action.payload.data;
             })
             .addCase(fetchPost.rejected,(state,action)=>{

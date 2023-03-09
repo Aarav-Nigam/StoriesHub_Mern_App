@@ -15,7 +15,7 @@ const Paginate=({page,setPage})=>{
         setPage(p);
     }
     const dispatch=useDispatch();
-    useEffect(()=>{console.log(page);dispatch(fetchAllPost(page))},[page]) 
+    useEffect(()=>{dispatch(fetchAllPost(page))},[page]) 
     return (
         <>
         <Pagination 

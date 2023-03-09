@@ -16,9 +16,9 @@ const Home = () => {
   if (query.searchQuery || query.tags) {
     dispatch(fetchPostBySearch({ search: query.searchQuery, tags: query.tags }))
   }
-  console.log(query.searchQuery)
-  console.log(query.tags)
-  const [page, setPage] = useState(query.page || 2); //Default as page 1
+  // console.log(query.searchQuery)
+  // console.log(query.tags)
+  const [page, setPage] = useState(query.page || 1); //Default as page 1
 
   return (<>
     <Container maxWidth='lg'>

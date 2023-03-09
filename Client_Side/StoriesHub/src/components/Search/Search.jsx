@@ -39,6 +39,7 @@ const Search = () => {
                   fullWidth
                   onKeyDown={handleKeyDown}
                   value={search}
+                  autoFocus
                   onChange={(e)=>{handleSearchChange(e)}}
                 />
                 <MuiChipsInput
