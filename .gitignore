@@ -1,0 +1,3 @@
+node_modules/
+Client_Side/StoriesHub/node_modules/
+*.env
