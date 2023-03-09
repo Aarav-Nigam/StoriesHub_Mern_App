@@ -3,7 +3,7 @@ import PostModel from "../models/postMessage.js"
 export const getPosts= async (req, res)=>{
     try {
         const page=req.params.page;
-        const LIMIT=6;
+        const LIMIT=3;
         const startIndex=(Number(page)-1)*LIMIT
         const total=await PostModel.countDocuments({})
         const postMessages=await PostModel.find().sort({_id:-1}).limit(LIMIT).skip(startIndex);

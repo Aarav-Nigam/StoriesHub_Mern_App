@@ -18,7 +18,7 @@ const Home = () => {
   }
   console.log(query.searchQuery)
   console.log(query.tags)
-  const [page, setPage] = useState(query.page || 1); //Default as page 1
+  const [page, setPage] = useState(query.page || 2); //Default as page 1
 
   return (<>
     <Container maxWidth='lg'>
