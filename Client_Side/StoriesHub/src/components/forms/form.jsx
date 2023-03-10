@@ -54,7 +54,7 @@ export const Form = ({ currId, setCurrId }) => {
         setCurrId(null)
     }
     if (!user) {
-        return <Paper elevation={16} className='h-50 d-flex align-items-center'>
+        return <Paper elevation={16} className='h-50 d-flex align-items-center mb-10'>
             <Typography variant="h5">
                 Please Sign In to Write some awesome stories...
             </Typography>
