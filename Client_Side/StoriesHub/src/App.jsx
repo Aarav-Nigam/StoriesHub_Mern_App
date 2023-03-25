@@ -2,6 +2,7 @@ import React from "react";
 import Home from "./components/Home/Home";
 import { useSelector } from "react-redux";
 import { Navbar } from "./components/Navbar/Navbar";
+import Footer from "./components/Footer/Footer";
 import Auth from "./components/Auth/Auth";
 import PostDetails from "./components/PostDetails/PostDetails";
 import { BrowserRouter,Routes,Route,Navigate} from "react-router-dom"
@@ -20,6 +21,7 @@ function App() {
       <Route path="/posts/:id" exact element={<PostDetails/>} />
       <Route path='/auth' exact element={!user?<Auth/>:<Navigate to={'/posts'} />}/>
     </Routes>
+    <Footer/>
     </BrowserRouter>
     </>
   )

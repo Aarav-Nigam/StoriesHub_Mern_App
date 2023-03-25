@@ -17,7 +17,12 @@ export const Navbar = () => {
             <div className="d-flex flex-row justify-content-between">
                 <a href="/" className="text-dark">
                     <div className="d-flex flex-row">
+                        <div>
                         <h1>Stories</h1>
+                        <h6>~By Aarav Nigam</h6>
+                        </div>
+                        
+                        
                         <img src={Book} alt="stories" width={'70px'} />
                     </div>
                 </a>
