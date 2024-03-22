@@ -16,7 +16,7 @@ export const Post = ({ setCurrId, post }) => {
     return (
         <>
             <Card className="hover-zoom" elevation={10}>
-                <CardMedia  onClick={() => { navigate(`/posts/${post._id}`) }} component="img" height={"150"} image={post.selectedFile} title={post.title} />
+                <CardMedia  onClick={() => { navigate(`/posts/${post._id}`) }} component="img" height={"300"} image={post.selectedFile} title={post.title} />
                 <div className="d-flex flex-row justify-content-between">
                     <div>
                         <h5 className="fw-bold">{post.author}</h5>

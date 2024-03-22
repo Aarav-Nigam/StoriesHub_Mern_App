@@ -11,6 +11,7 @@ function App() {
   return (
     <>
     <BrowserRouter>
+    <div className="container d-flex flex-column" style={{minHeight:'100vh', minWidth: '100vw', padding:0}}>
     <Navbar/>
     <Routes>
        {/* To make "/posts" as your default page instead of "/" */}
@@ -22,6 +23,7 @@ function App() {
       <Route path='/auth' exact element={!user?<Auth/>:<Navigate to={'/posts'} />}/>
     </Routes>
     <Footer/>
+    </div>
     </BrowserRouter>
     </>
   )

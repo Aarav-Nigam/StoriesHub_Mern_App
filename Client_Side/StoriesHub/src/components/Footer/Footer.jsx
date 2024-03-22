@@ -1,9 +1,9 @@
-import React from 'react'
+import React from 'react';
 
 function Footer() {
     return (
-        <footer className="bg-dark text-center text-white mt-4">
-            <div className="container p-2 pb-0">
+        <footer className="bg-dark text-center text-white mt-auto">
+            <div className="container p-2">
                 <section className="mb-1">
                     <a className="btn btn-outline-light btn-floating m-1" href="https://www.facebook.com/AvatarAarav/" role="button"
                     ><i className="fab fa-facebook-f"></i
@@ -29,14 +29,13 @@ function Footer() {
                 </section>
                 
             </div>
-            
 
-            <div className="text-center p-3" style={{"bgcolor": "rgba(0, 0, 0, 0.2)"}}>
+            <div className="bg-secondary text-white text-center py-3">
                 © 2023 Copyright:
                 <a className="text-white" href="https://portfolio-aarav.netlify.app/">Aarav Nigam</a>
             </div>
         </footer>
-    )
+    );
 }
 
-export default Footer
+export default Footer;

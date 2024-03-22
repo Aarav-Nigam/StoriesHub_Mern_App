@@ -20,7 +20,7 @@ const PostDetails = () => {
   </div>)
   return (
     <>
-      <section style={{ backgroundColor: '#eee' }}>
+      <section style={{ backgroundColor: '#eee', minHeight:'90vh' }}>
         <div className="container">
           <div className="row bg-light rounded-3 mb-2" aria-label="breadcrumb" >
             <div className="col-10">

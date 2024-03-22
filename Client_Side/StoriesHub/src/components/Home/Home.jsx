@@ -21,10 +21,8 @@ const Home = () => {
   const [page, setPage] = useState(query.page || 1); //Default as page 1
 
   return (<>
-    <Container maxWidth='lg'>
       <Grow in>
-        <Container>
-          <Grid container justify="space-between" alignItems={'stretch'}>
+          <Grid container padding={2} spacing={3}>
             <Grid className="px-2" item xs={12} sm={4} md={3}>
               <Search />
               {/* RightNow It is not allowing pagination in search, but we can allow it by changing some backend api */}
@@ -41,9 +39,7 @@ const Home = () => {
               <Posts setCurrId={setCurrId} />
             </Grid>
           </Grid>
-        </Container>
       </Grow>
-    </Container>
   </>
   )
 }

@@ -62,20 +62,24 @@ export const Form = ({ currId, setCurrId }) => {
     }
     return (
         <>
-            <Paper elevation={16}>
-                <form autoComplete="off" noValidate onSubmit={(e) => handleSubmit(e)}>
-                    <h2 className="fw-bold text-center text-decoration-underline ">Create Story</h2>
-                    <TextField name="title" variant="filled" label='Title' fullWidth value={postData.title} onChange={(e) => { setPostData({ ...postData, title: e.target.value }) }} />
-                    <TextField name="story" id="outlined-multiline-static" minRows={5} multiline variant="filled" label='Story' fullWidth value={postData.story} onChange={(e) => { setPostData({ ...postData, story: e.target.value }) }} />
-                    <TextField name="tags" variant="filled" label='Tags' fullWidth value={postData.tags.join()} onChange={(e) => { setPostData({ ...postData, tags: e.target.value.split(',') }) }} />
-                    <div>
-                        <input name="file" id="file" onChange={(e) => onImageChange(e)} type="file" />
-                        {/* <FileBase type='file' multiple={false} onDone={({ base64 }) => setPostData({ ...postData, selectedFile: base64 })} /> */}
-                    </div>
-                    <Button type="submit" variant="contained" color="success" size="large" fullWidth>Submit</Button>
-                    <Button variant="contained" color="warning" size="small" fullWidth onClick={() => clear()}>Clear</Button>
-                </form>
-            </Paper>
-        </>
+        <Paper elevation={16} className='d-flex flex-column' style={{minHeight:'60vh'}}>
+          <form autoComplete="off" noValidate onSubmit={(e) => handleSubmit(e)} className="flex-grow-1 d-flex flex-column">
+            <h2 className="fw-bold text-center text-decoration-underline">Create Story</h2>
+            <TextField name="title" variant="filled" label='Title' fullWidth value={postData.title} onChange={(e) => { setPostData({ ...postData, title: e.target.value }) }} />
+            <div className="flex-grow-1">
+              <TextField name="story" id="outlined-multiline-static" rows={15}  multiline variant="filled" label='Story' fullWidth value={postData.story} onChange={(e) => { setPostData({ ...postData, story: e.target.value }) }} />
+            </div>
+            <TextField name="tags" variant="filled" label='Tags' fullWidth value={postData.tags.join()} onChange={(e) => { setPostData({ ...postData, tags: e.target.value.split(',') }) }} />
+            <div>
+              <input name="file" id="file" onChange={(e) => onImageChange(e)} type="file" />
+            </div>
+            <div className="d-flex flex-column mt-auto">
+              <Button type="submit" variant="contained" color="success" size="large" fullWidth>Submit</Button>
+              <Button variant="contained" color="warning" size="small" fullWidth onClick={() => clear()}>Clear</Button>
+            </div>
+          </form>
+        </Paper>
+      </>
+    
     )
 }

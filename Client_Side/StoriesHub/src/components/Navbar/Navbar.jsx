@@ -18,12 +18,8 @@ export const Navbar = () => {
                 <a href="/" className="text-dark">
                     <div className="d-flex flex-row">
                         <div>
-                        <h1>Stories</h1>
-                        <h6>~By Aarav Nigam</h6>
+                        <h1 className="fw-bold"> Stories</h1>
                         </div>
-                        
-                        
-                        <img src={Book} alt="stories" width={'70px'} />
                     </div>
                 </a>
                 <Toolbar>
