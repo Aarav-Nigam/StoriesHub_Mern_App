@@ -1,6 +1,6 @@
 import axios from "axios";
-const url='http://localhost:3000/api'
-// const url='https://zany-puce-spider-tam.cyclic.app/api/'
+// const url='http://localhost:3000/api'
+const url='https://zany-puce-spider-tam.cyclic.app/api/'
 const API=axios.create({baseURL:url});
 
 API.interceptors.request.use((req)=>{
